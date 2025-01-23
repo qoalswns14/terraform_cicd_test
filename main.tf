@@ -77,7 +77,7 @@ resource "aws_codepipeline" "pipeline" {
 
       configuration = {
         ConnectionArn    = aws_codestarconnections_connection.github.arn
-        FullRepositoryId = "qoalswns14/terraform_cicd_test"  # 새로운 저장소
+        FullRepositoryId = ""  # 깃허브 저장소 주소 값 입력
         BranchName      = "main"
       }
     }
