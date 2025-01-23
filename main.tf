@@ -4,7 +4,22 @@ provider "aws" {
 
 # S3 버킷 생성 (아티팩트 저장소)
 resource "aws_s3_bucket" "artifact_store" {
-  bucket = "my-cicd-test-minjunbae-${random_string.suffix.result}"  # 수정
+  bucket = "my-cicd-test-minjunbae-${random_string.suffix.result}"
+  force_destroy = true  # 버킷이 비어있지 않아도 삭제 가능
+}
+
+# S3 버킷 비우기 설정
+resource "aws_s3_bucket_lifecycle_configuration" "bucket_lifecycle" {
+  bucket = aws_s3_bucket.artifact_store.id
+
+  rule {
+    id     = "cleanup"
+    status = "Enabled"
+
+    expiration {
+      days = 1  # 1일 후 객체 삭제
+    }
+  }
 }
 
 # 랜덤 문자열 생성
