@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My 222 AWS Pipeline</title>
+    <title>AWS CI/CD Pipeline Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,13 +20,61 @@
         h1 {
             color: #333;
             text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .build-time {
+            color: #666;
+            font-style: italic;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+        .feature-list li:hover {
+            background-color: #dee2e6;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This page was deployed using AWS CodePipeline!</p>
+        <h1>AWS CI/CD Pipeline 구현 프로젝트</h1>
+        
+        <div class="info-box">
+            <p class="build-time">최근 배포 시간: <span id="buildTime"></span></p>
+            <script>
+                document.getElementById('buildTime').textContent = new Date().toLocaleString();
+            </script>
+        </div>
+
+        <h2>구현 내용</h2>
+        <ul class="feature-list">
+            <li>✅ Terraform을 사용한 인프라 자동화</li>
+            <li>✅ GitHub 저장소와 AWS CodePipeline 연동</li>
+            <li>✅ CodeBuild를 통한 자동 빌드 구성</li>
+            <li>✅ CodeDeploy를 사용한 EC2 자동 배포</li>
+            <li>✅ VPC, 서브넷, 보안 그룹 등 네트워크 인프라 구성</li>
+            <li>✅ Nginx 웹 서버 자동 설치 및 구성</li>
+            <li>✅ S3 버킷을 통한 아티팩트 관리</li>
+        </ul>
+
+        <div class="info-box">
+            <h3>테스트 방법</h3>
+            <p>이 페이지의 내용을 수정하고 GitHub에 push하면 자동으로 배포가 진행됩니다.</p>
+            <p>배포 시간이 업데이트되는 것을 확인하세요!</p>
+        </div>
     </div>
 </body>
 </html> 
