@@ -5,4 +5,4 @@ if ! command -v nginx &> /dev/null; then
 fi
 
 # 이전 파일 제거
-rm -rf /var/www/html/* 
+rm -rf /usr/share/nginx/html/* 
